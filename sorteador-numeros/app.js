@@ -14,15 +14,17 @@ function sortear() {
     let listaDeNumerosSorteados = [];
     document.getElementById('btn-reiniciar').className = 'container__botao';
 
-    if (isChecked == '1') {
+    if (quantidadeNumeros < (numeroMaximo - numeroMinimo)) {
+            if (numeroMinimo < numeroMaximo) {
+            if (isChecked == '1') {
         for (let vezesRepeticao = 0; vezesRepeticao < quantidadeNumeros; vezesRepeticao++) {
-            listaDeNumerosSorteados.push(parseInt(Math.random() * (numeroMaximo - numeroMinimo) + numeroMinimo));        
+            listaDeNumerosSorteados.push(parseInt(Math.random() * (numeroMaximo - numeroMinimo + 1) + numeroMinimo));        
             
         }
         
     } else {
         for (let vezesRepeticao = 0; vezesRepeticao < quantidadeNumeros; vezesRepeticao++) {
-            numerosSorteados = (parseInt(Math.random() * (numeroMaximo - numeroMinimo) + numeroMinimo));            
+            numerosSorteados = (parseInt(Math.random() * (numeroMaximo - numeroMinimo + 1) + numeroMinimo));            
            
             if (listaDeNumerosSorteados.includes(numerosSorteados)) {
                 return sortear();
@@ -32,6 +34,15 @@ function sortear() {
             }
         }
     }
+    } else {
+        alert('Os dados foram inseridos incorretamente')
+    }
+    } else {
+        alert('Os dados foram inseridos incorretamente')
+    }
+
+
+
 
     
     let textoNaTela = document.getElementById('textonastela');
